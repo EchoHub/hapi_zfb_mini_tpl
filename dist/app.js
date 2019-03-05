@@ -1,0 +1,1 @@
+"use strict";var myApp=App({onLaunch:function(o){},onShow:function(o){},onHide:function(){},onError:function(o){console.log(o)},onShareAppMessage:function(){},globalData:{foo:!0}});
