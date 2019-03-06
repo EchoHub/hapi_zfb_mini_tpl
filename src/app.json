@@ -1,6 +1,7 @@
 {
     "pages": [
-      "pages/_template/index"
+      "pages/_template/index",
+      "pages/index/index"
     ],
     "window": {
       "defaultTitle": "TPL",

@@ -1,1 +1,0 @@
-"use strict";Page({data:{title:"Hapi Template"},onLoad:function(n){console.log("onLoad ...")},onShow:function(){},onReady:function(){},onHide:function(){},onUnload:function(){},onTitleClick:function(){},onPullDownRefresh:function(){},onReachBottom:function(){},onShareAppMessage:function(){}});
