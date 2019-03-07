@@ -1,5 +1,6 @@
 import handlers from "./handlers";
-Page({
+const HapiStat = require("utils/hp-stat")
+Page(HapiStat.$Page({
     data: {
         title: 'Hapi Template'
     },
@@ -38,5 +39,6 @@ Page({
     onShareAppMessage() {
         // 返回自定义分享信息
         console.log("page onShareAppMessage")
-    }
-})
+    },
+    ...handlers
+}))

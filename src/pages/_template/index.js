@@ -1,5 +1,6 @@
-import handlers from "./handlers";
-Page({
+import handlers from "./handlers"
+const HapiStat = require("utils/hp-stat")
+Page(HapiStat.$Page({
     data: {
         title: 'Hapi Template'
     },
@@ -40,4 +41,4 @@ Page({
         console.log("page onShareAppMessage")
     },
     ...handlers
-})
+}))

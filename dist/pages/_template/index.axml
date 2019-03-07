@@ -1,0 +1,10 @@
+<view className="hp-_template">
+<button 
+    type="primary" 
+    size="default" 
+    onTap="goTap" 
+    hover-stop-propagation="false"
+> 
+Button 
+</button>
+</view>

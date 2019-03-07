@@ -1,0 +1,14 @@
+{
+    "pages": [
+      "pages/_template/index",
+      "pages/index/index"
+    ],
+    "window": {
+      "defaultTitle": "TPL",
+      "pullRefresh": "false",
+      "allowsBounceVertical": "yes",
+      "titleBarColor": "#ffffff"
+    },
+    "tabBar": {
+    }
+  }
