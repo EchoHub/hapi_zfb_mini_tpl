@@ -5,7 +5,7 @@
     var config = require("./hp-stat-config");
 
     function sendEvent() {
-        console.log("数立统计上报：", +new Date())
+        console.log("哈皮统计上报：", +new Date())
     }
     function handlers(behavors) {
         for (var i = 0; i < behavors.length; i++) {
@@ -13,7 +13,7 @@
             const _behavor = this[behavor];
             this[behavor] = function() {
                 if (!(config.defaultTrackConfig instanceof Array)) {
-                    throw "数立统计提示：默认上报特征必须为数组形式配置"
+                    throw "哈皮统计提示：默认上报特征必须为数组形式配置"
                 }
                 const defaultTrackConfig = config.defaultTrackConfig.length ? config.defaultTrackConfig : ["datetime"]
                 for (var j = 0; j < defaultTrackConfig.length; j++) {
