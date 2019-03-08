@@ -10,7 +10,7 @@
                     "./",
                     "./src/components"
                 ],
-                "extensions": [".js"]
+                "extensions": [".js", ".json"]
             }
         ]
     ]

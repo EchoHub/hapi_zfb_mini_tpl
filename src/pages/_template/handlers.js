@@ -1,4 +1,5 @@
 import * as _My from "utils/_my";
+import ajax from "http/ajax"
 const handlers = {
     goTap() {
         _My.navigateTo("index", ()=> {
