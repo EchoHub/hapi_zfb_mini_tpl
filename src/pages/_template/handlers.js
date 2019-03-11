@@ -1,8 +1,8 @@
 import * as _My from "utils/_my";
-import ajax from "http/ajax"
+import { ajax  } from "utils/utils"
 const handlers = {
     goTap() {
-        _My.navigateTo("index", ()=> {
+        _My.navigateTo("index", () => {
             console.log(1)
         })
         // my.redirectTo({

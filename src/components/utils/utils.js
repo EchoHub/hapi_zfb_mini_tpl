@@ -1,4 +1,6 @@
 import Type from "./type";
+import EventTarget from "./event";
 export default {
-    Type
+    Type,
+    EventTarget
 }

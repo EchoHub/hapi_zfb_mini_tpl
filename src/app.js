@@ -1,6 +1,7 @@
 const HapiStat = require("utils/hp-stat")
 import CONSTANTS from "_constants/index"
-import ajax from "http/ajax"
+import { EventTarget, ajax } from "utils/utils"
+const customEvent = new EventTarget()
 App(HapiStat.$App({
     /**
      * APP全局常量挂载
@@ -11,7 +12,7 @@ App(HapiStat.$App({
     /**
      * 自定义事件，（状态管理、事件通知）
      */
-    // $event: customEvent,
+    $event: customEvent,
     onLaunch(options) {
         console.log("app launch")
         ajax()

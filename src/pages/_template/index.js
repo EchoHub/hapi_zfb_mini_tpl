@@ -1,5 +1,5 @@
 import handlers from "./handlers"
-import ajax from "http/ajax"
+import { ajax  } from "utils/utils"
 const HapiStat = require("utils/hp-stat")
 Page(HapiStat.$Page({
     data: {
