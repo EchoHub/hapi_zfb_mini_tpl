@@ -1,7 +1,7 @@
 const HapiStat = require("utils/hp-stat")
 import CONSTANTS from "_constants/index"
-import { EventTarget, ajax } from "utils/utils"
-const customEvent = new EventTarget()
+import Utils from "utils/utils"
+const customEvent = new Utils.EventTarget()
 App(HapiStat.$App({
     /**
      * APP全局常量挂载
