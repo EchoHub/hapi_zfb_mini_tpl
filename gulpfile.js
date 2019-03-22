@@ -6,7 +6,6 @@ const gulpif = require('gulp-if')
 const gulpwatch = require('gulp-watch')
 const minimist = require('minimist')
 const rename = require('gulp-rename')
-const gulprun = require('gulp-run')
 const pump = require('pump')
 const rimraf = require('rimraf')
 
@@ -15,6 +14,7 @@ const LessAutoprefix = require('less-plugin-autoprefix')
 const autoprefix = new LessAutoprefix({ browsers: ['> 1%'] })
 const cleanCss = require('gulp-clean-css')
 
+const eslint = require('gulp-eslint')
 const babel = require('gulp-babel')
 const uglify = require('gulp-uglify')
 
@@ -70,16 +70,21 @@ gulp.task("less:compile", async function () {
         })
     })
 })
-gulp.task("js:compile", async function () {
-    const { jsDirs } = glob["common"]
-    const { env } = minimist(process.argv.slice(2), knownOptions);
+gulp.task('js:compile', async function () {
+    const { jsDirs } = glob['common']
+    const { env } = minimist(process.argv.slice(2), knownOptions)
     jsDirs.map(dir => {
-        const end = + new Date() / 1000;
+        const end = +new Date() / 1000
         return pump([
             gulp.src(dir.src),
             babel(),
-            gulpif(env === "production", uglify()),
-            gulp.dest(dir.dest),
+            eslint({
+                configFile: './.eslintrc',
+                fix: true
+            }),
+            eslint.format(),
+            gulpif(env === 'production', uglify()),
+            gulp.dest(dir.dest)
         ], function (err) {
             if (!err) {
                 console.log(`执行操作：生成文件>>>>${dir.dest}`.red)
@@ -172,7 +177,14 @@ function hapiUtil() {
 }
 hapiUtil.prototype = {
     build: async function (type) {
-        const destPath = path.join(__dirname, `src/${type}/${this.name}`)
+        const name = this.name
+        const nameArr = name.split('/')
+        const fileName = nameArr[nameArr.length - 1]
+        let filePath = null
+        if (nameArr.length > 1) {
+            filePath = nameArr.slice(0, nameArr.length - 1).join('/')
+        }
+        const destPath = path.join(__dirname, `src/${type}/${filePath ? `${filePath}/${fileName}` : fileName}`)
         return pump([
             gulp.src(path.join(__dirname, `src/${type}/_template/*.*`)),
             gulpif(!fs.existsSync(destPath), gulp.dest(destPath))
